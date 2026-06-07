@@ -1,0 +1,44 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+build/
+out/
+coverage/
+
+# env
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+
+# TypeScript
+*.tsbuildinfo
+
+# Cloud / local secrets
+service-account*.json
+*.pem
+*.key
+
+# VS Code extension output later
+*.vsix
+
+# temporary
+tmp/
+temp/
+.cache/
