@@ -1,0 +1,92 @@
+{
+  "name": "commit-scribe-vscode",
+  "displayName": "Commit Scribe",
+  "description": "Generate clear commit messages from staged Git diffs using Commit Scribe API.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "publisher": "ardwi",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ardwi/commit-scribe.git",
+    "directory": "apps/vscode-extension"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Source Control",
+    "Other"
+  ],
+  "keywords": [
+    "git",
+    "commit",
+    "commit message",
+    "source control",
+    "ai"
+  ],
+  "activationEvents": [
+    "onCommand:commitScribe.generateCommitMessage"
+  ],
+  "extensionDependencies": [
+    "vscode.git"
+  ],
+  "main": "./dist/extension.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "package": "vsce package",
+    "vscode:prepublish": "npm run build"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "commitScribe.generateCommitMessage",
+        "title": "Generate Commit Message",
+        "category": "Commit Scribe",
+        "icon": "$(wand)"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "commitScribe.generateCommitMessage",
+          "when": "scmProvider == git",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "commitScribe.generateCommitMessage"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Commit Scribe",
+      "properties": {
+        "commitScribe.apiUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Commit Scribe API URL."
+        },
+        "commitScribe.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Commit Scribe API key."
+        },
+        "commitScribe.timeoutMs": {
+          "type": "number",
+          "default": 30000,
+          "minimum": 1000,
+          "description": "Request timeout in milliseconds."
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.2.2",
+    "typescript": "^5.7.2"
+  }
+}
