@@ -1,10 +1,13 @@
 # Commit Scribe
 
-Generate clear commit messages from staged Git diffs using Vertex AI.
+> AI-powered commit message generator — right inside VS Code's Source Control panel.
 
-Commit Scribe is designed to support a simple developer workflow:
+Commit Scribe analyzes your staged Git diff and instantly generates a clear, conventional commit message using Vertex AI. No more staring at the blank commit input box.
 
-1. Stage files in Git or VS Code.
-2. Generate a commit message from staged changes.
-3. Review or edit the message.
-4. Commit manually.
+![Commit Scribe Demo](./assets/demo.gif)
+
+---
+
+## License
+
+[MIT](./LICENSE) © [ardwiinoo](https://github.com/ardwiinoo)
